@@ -166,14 +166,13 @@ Este projeto está licenciado sob a licença MIT - veja o arquivo LICENSE para d
 
 ## 👨‍💻 Autor
 
-Criado com ❤️ por [Seu Nome]
+onerd dev
 
 ## 🤝 Contribuições
-
-Contribuições são bem-vindas! Sinta-se livre para abrir um issue ou pull request.
 
 ## ⭐ Se gostou do projeto, não esqueça de deixar uma estrela!
 
 ---
 
 **Última atualização**: Fevereiro 2026
+
