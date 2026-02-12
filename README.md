@@ -103,11 +103,6 @@ sudo apt-get install ffmpeg
 
 ```bash
 python app.py
-```
-
-A aplicação ficará disponível em:
-
-http://localhost:5000
 
 ---
 
@@ -296,4 +291,5 @@ onerd dev
 ---
 
 Última atualização: Fevereiro 2026
+
 
