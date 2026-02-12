@@ -1,178 +1,298 @@
-# 🎬 Video Downloader Pro
+# Video Downloader Pro
 
-Um aplicativo moderno e poderoso para baixar vídeos do YouTube, Instagram e TikTok com suporte a múltiplas qualidades e extração de áudio.
+Aplicação para download de vídeos do YouTube, Instagram e TikTok, com suporte a múltiplas qualidades e extração de áudio em MP3. O projeto possui versão web e versão via terminal.
 
-## ✨ Recursos
+---
 
-- ✅ **Suporte Multiplataforma**: YouTube, Instagram e TikTok
-- ✅ **Múltiplas Qualidades**: Escolha entre best, alta (1080p), média (720p) e rápida (480p)
-- ✅ **Extração de Áudio**: Baixe apenas o áudio em formato MP3
-- ✅ **Validação de URL**: Valide URLs antes de fazer download
-- ✅ **Informações do Vídeo**: Veja título, duração, canal e visualizações
-- ✅ **Histórico de Downloads**: Acompanhe todos os downloads realizados
-- ✅ **Interface Moderna**: Interface web responsiva e intuitiva
-- ✅ **Versão Terminal**: Aplicação de linha de comando também disponível
+## 1. Visão Geral
 
-## 📋 Requisitos
+O sistema permite:
 
-- Python 3.8+
-- FFmpeg (para extração de áudio)
+- Download de vídeos em diferentes resoluções
+- Extração de áudio em formato MP3
+- Validação de URLs antes do download
+- Consulta de informações do vídeo
+- Histórico local de downloads
+- Execução via interface web ou linha de comando
 
-## 🚀 Instalação
+---
 
-### 1. Clone o repositório
+## 2. Recursos
+
+- Suporte a YouTube, Instagram e TikTok
+- Seleção de qualidade: best, 1080p, 720p, 480p
+- Extração de áudio em MP3
+- Validação de URL e detecção automática de plataforma
+- Visualização de título, duração, canal e visualizações
+- Histórico de downloads armazenado em JSON
+- Interface web baseada em Flask
+- Versão CLI interativa
+
+---
+
+## 3. Requisitos
+
+- Python 3.8 ou superior
+- FFmpeg (necessário para extração de áudio)
+- pip
+
+---
+
+## 4. Instalação
+
+### 4.1 Clonar o Repositório
+
 ```bash
-git clone https://github.com/seu-usuario/video-downloader-pro.git
+git clone github.com/seu-usuario/video-downloader-pro.git
 cd video-downloader-pro
 ```
 
-### 2. Crie um ambiente virtual
+---
+
+### 4.2 Criar Ambiente Virtual
+
+#### Windows
+
 ```bash
-# Windows
 python -m venv venv
 venv\Scripts\activate
+```
 
-# macOS/Linux
+#### macOS / Linux
+
+```bash
 python3 -m venv venv
 source venv/bin/activate
 ```
 
-### 3. Instale as dependências
+---
+
+### 4.3 Instalar Dependências
+
 ```bash
 pip install -r requirements.txt
 ```
 
-### 4. Instale FFmpeg (se ainda não tiver)
+---
 
-**Windows (usando chocolatey):**
+### 4.4 Instalar FFmpeg
+
+#### Windows (Chocolatey)
+
 ```bash
 choco install ffmpeg
 ```
 
-**macOS:**
+#### macOS
+
 ```bash
 brew install ffmpeg
 ```
 
-**Linux:**
+#### Linux
+
 ```bash
 sudo apt-get install ffmpeg
 ```
 
-## 💻 Como Usar
+---
 
-### Versão Web
+## 5. Execução
+
+### 5.1 Versão Web
 
 ```bash
 python app.py
 ```
 
-Acesse `http://localhost:5000` no seu navegador.
+A aplicação ficará disponível em:
 
-### Versão Terminal
+http://localhost:5000
+
+---
+
+### 5.2 Versão Terminal
 
 ```bash
 python main.py
 ```
 
-Siga o menu interativo para escolher suas opções.
-
-## 🎯 Funcionalidades
-
-### Download de Vídeo
-1. Cole a URL do vídeo
-2. Escolha o tipo de download (Vídeo ou Áudio)
-3. Selecione a qualidade desejada
-4. Clique em "Baixar"
-
-### Ver Informações
-1. Vá para a aba "ℹ️ Info"
-2. Cole a URL
-3. Clique em "Validar"
-4. Veja os detalhes do vídeo
-
-### Histórico
-1. Vá para a aba "📜 Histórico"
-2. Veja todos os downloads realizados
-3. Use "🗑️ Limpar" para limpar o histórico
-
-## 📁 Estrutura do Projeto
-
-```
-video-downloader-pro/
-├── app.py                 # Aplicação Flask (web)
-├── main.py               # Aplicação terminal
-├── config.py             # Configurações do projeto
-├── requirements.txt      # Dependências Python
-├── .gitignore           # Arquivos ignorados pelo Git
-├── README.md            # Este arquivo
-├── templates/
-│   └── index.html       # Interface web
-└── download_history.json # Histórico de downloads
-```
-
-## 🔌 API Endpoints
-
-### POST `/download`
-Baixa um vídeo completo
-- **Parâmetros**: `url`, `quality` (best|high|medium|low)
-
-### POST `/download-audio`
-Baixa apenas o áudio em MP3
-- **Parâmetros**: `url`
-
-### POST `/api/validate-url`
-Valida URL e detecta plataforma
-- **Body**: `{ "url": "..." }`
-- **Response**: `{ "valid": boolean, "platform": string, "info": object }`
-
-### POST `/api/info`
-Obtém informações do vídeo
-- **Body**: `{ "url": "..." }`
-- **Response**: `{ "title": string, "duration": number, "uploader": string, "view_count": number }`
-
-### GET `/api/history`
-Obtém histórico de downloads
-- **Response**: Array de downloads
-
-### POST `/api/history/clear`
-Limpa o histórico
-- **Response**: `{ "success": boolean }`
-
-## ⚙️ Configuração
-
-Edite o arquivo `config.py` para ajustar:
-- Tamanho máximo de arquivo
-- Diretórios de download
-- Chave secreta do Flask
-- Opções de yt-dlp
-
-## 🐛 Troubleshooting
-
-### FFmpeg não encontrado
-Certifique-se de que FFmpeg está instalado e no PATH do sistema.
-
-### Erro ao fazer download
-- Verifique se a URL é válida
-- Tente uma URL diferente (alguns vídeos podem estar protegidos)
-- Verifique sua conexão com a internet
-
-### Histórico não aparece
-Limpe o cache do navegador ou abra em modo incógnito.
-
-## 📝 Licença
-
-Este projeto está licenciado sob a licença MIT - veja o arquivo LICENSE para detalhes.
-
-## 👨‍💻 Autor
-
-onerd dev
-
-## 🤝 Contribuições
-
-## ⭐ Se gostou do projeto, não esqueça de deixar uma estrela!
+Siga o menu interativo exibido no terminal.
 
 ---
 
-**Última atualização**: Fevereiro 2026
+## 6. Funcionalidades
 
+### Download de Vídeo
+
+1. Informar a URL
+2. Escolher tipo de download (vídeo ou áudio)
+3. Selecionar qualidade
+4. Confirmar download
+
+---
+
+### Consulta de Informações
+
+1. Informar a URL
+2. Validar
+3. Visualizar:
+   - Título
+   - Duração
+   - Canal
+   - Número de visualizações
+
+---
+
+### Histórico
+
+- Lista todos os downloads realizados
+- Permite limpar histórico
+- Armazenado em `download_history.json`
+
+---
+
+## 7. Estrutura do Projeto
+
+```
+video-downloader-pro/
+├── app.py
+├── main.py
+├── config.py
+├── requirements.txt
+├── .gitignore
+├── README.md
+├── templates/
+│   └── index.html
+└── download_history.json
+```
+
+---
+
+## 8. API Endpoints
+
+### POST /download
+
+Realiza download de vídeo.
+
+Parâmetros:
+- url
+- quality (best | high | medium | low)
+
+---
+
+### POST /download-audio
+
+Realiza download apenas do áudio em MP3.
+
+Parâmetros:
+- url
+
+---
+
+### POST /api/validate-url
+
+Valida URL e identifica plataforma.
+
+Body:
+```
+{ "url": "..." }
+```
+
+Resposta:
+```
+{ 
+  "valid": boolean, 
+  "platform": string, 
+  "info": object 
+}
+```
+
+---
+
+### POST /api/info
+
+Obtém informações do vídeo.
+
+Body:
+```
+{ "url": "..." }
+```
+
+Resposta:
+```
+{
+  "title": string,
+  "duration": number,
+  "uploader": string,
+  "view_count": number
+}
+```
+
+---
+
+### GET /api/history
+
+Retorna histórico de downloads.
+
+---
+
+### POST /api/history/clear
+
+Limpa histórico.
+
+Resposta:
+```
+{ "success": boolean }
+```
+
+---
+
+## 9. Configuração
+
+O arquivo `config.py` permite configurar:
+
+- Diretório de downloads
+- Tamanho máximo de arquivo
+- Chave secreta do Flask
+- Parâmetros personalizados do yt-dlp
+
+---
+
+## 10. Troubleshooting
+
+### FFmpeg não encontrado
+
+Verifique se está instalado e disponível no PATH do sistema.
+
+---
+
+### Erro ao fazer download
+
+- Verifique se a URL é válida
+- Teste outra URL
+- Verifique conexão com a internet
+
+---
+
+### Histórico não aparece
+
+- Verifique permissões de escrita no arquivo JSON
+- Limpe cache do navegador
+- Reinicie a aplicação
+
+---
+
+## 11. Licença
+
+MIT License
+
+---
+
+## 12. Autor
+
+onerd dev
+
+---
+
+Última atualização: Fevereiro 2026
