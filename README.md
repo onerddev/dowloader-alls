@@ -43,7 +43,7 @@ O sistema permite:
 ### 4.1 Clonar o Repositório
 
 ```bash
-git clone github.com/seu-usuario/video-downloader-pro.git
+git clone github.com/onerddev/video-downloader-pro.git
 cd video-downloader-pro
 ```
 
@@ -296,3 +296,4 @@ onerd dev
 ---
 
 Última atualização: Fevereiro 2026
+
